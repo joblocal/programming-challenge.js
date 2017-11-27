@@ -1,0 +1,3 @@
+/*
+ * Entrypoint for the application.
+ */
