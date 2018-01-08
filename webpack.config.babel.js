@@ -1,23 +1,17 @@
 import path from 'path';
-import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 
 // see: https://github.com/webpack/webpack/issues/2537
 const isProd = process.argv.indexOf('-p') !== -1;
 
-const config = {
+export default {
   context: __dirname,
 
-  // Don't attempt to continue if there are any errors in production
   bail: isProd,
-
-  // We generate sourcemaps in production. This is slow but gives good results.
-  // You can exclude the *.map files from the build during deployment.
   devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
 
-  entry: [
-    './src/main.js',
-  ],
+  entry: './src/index.js',
 
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -25,19 +19,28 @@ const config = {
   },
 
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.vue', '.js', '.json'],
     alias: {
       src: path.resolve(__dirname, 'src'),
     },
   },
 
   module: {
-    // noParse: /jquery|lodash/,
-
     rules: [
+      {
+        test: /\.(js|vue)$/,
+        enforce: 'pre',
+        use: 'eslint-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.js$/,
         use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.vue$/,
+        use: 'vue-loader',
         exclude: /node_modules/,
       },
     ],
@@ -45,13 +48,21 @@ const config = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './src/index.html',
       inject: true,
+    }),
+
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: ['Project is running at http://localhost:8080'],
+        notes: ['Run linter with: yarn lint', 'Run tests with: yarn test'],
+      },
     }),
   ],
 
   // from `webpack-dev-server` module
   devServer: {
+    contentBase: false,
     noInfo: true,
     quiet: true,
 
@@ -63,20 +74,3 @@ const config = {
     },
   },
 };
-
-if (isProd) {
-  config.plugins.push(
-    // Minify the code.
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
-      sourceMap: true,
-    }),
-  );
-}
-
-module.exports = config;
