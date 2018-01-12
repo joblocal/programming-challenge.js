@@ -25,7 +25,7 @@ Nice to haves:
 
 ## Installation / Getting started
 
-Initialize this project as a git repository. Make the first commit wihout applying any changes the the code. Then, start your solution.
+Initialize this project as a git repository. Make the first commit wihout applying any changes to the code. Then, start your solution.
 
 ```sh
 git init .
@@ -56,4 +56,4 @@ $ npm run build
 
 ## Project submission
 
-Feel free to place this test on your Github, Gitlab, Bitbucked, etc account as a public repository. Send the link back to Joblocal. We are looking forward to hearing from you. Good luck! :)
+Feel free to place this test on your Github, Gitlab, Bitbucket, etc account as a public repository. Send the link back to Joblocal. We are looking forward to hearing from you. Good luck! :)
