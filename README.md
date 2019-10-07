@@ -1,58 +1,30 @@
-# TicTacToe
+# JavaScript Programming Challenge: Job List UI
+
+You're free to use any JavaScript framework or vanilla JS, whatever you feel comfortable with.
+
 
 ## Objective
 
-Implement a [TicTacToe](https://en.wikipedia.org/wiki/Tic-tac-toe) game according to the wikipedia page.
+Implement a UI displaying a list of job postings by fetching search results from the [Joblocal API](https://developer.joblocal.de/).
 
-Key Features:
-* The game is a 3x3 board
-* The game is played in the same browser window
-* Before starting a game, the player names are provided
-* One player starts with the first move
-* After selecting a field on the board, the game automatically switches to the other player
-* When the game is over, show the result of which player has won or if it was a draw
-* Target browser is Chrome
+**Key Features**:
+- Input Field for providing a search query
+- Submit button to retrieve results for provided query
+- List of results as returned by the API
+- Target browser is Chrome (latest version)
 
-You have the following application architecture:
-* `webpack.config.babel.js` is already provided. Extend it as you see fit.
-* `src/index.js` is the application entrypoint.
-* `src/store` to implement your game logic and player handling (some more info provided in there)
-* `src/components` to implement your view logic (use any framework you like, e.g. Vuejs, React, etc.)
+**Nice to haves**:
+- +1 if you add tests to the project
+- +1 if you add code linting to the project
 
-Nice to haves:
-* +1 if you add tests to the project
-* +1 if you add code linting to the project
 
-## Installation / Getting started
+## Resources
 
-Initialize this project as a git repository. Make the first commit wihout applying any changes to the code. Then, start your solution.
+Use the following links to fullfill the objective.
 
-```sh
-git init .
-git add .
-git commit -m "Your initial commit message of choice"
-```
+- [Joblocal API docs](https://developer.joblocal.de/)
+- [JSON API Spec](https://jsonapi.org/)
 
-Ensure you have the following software (globally) installed on your system:
-
-* `[node.js](http://nodejs.org/)` ^8.0.0
-
-```sh
-# install dependencies
-$ npm install
-
-# run the tests
-$ npm test
-
-# start the dev server
-$ npm start
-```
-
-## Building / transpiling the project
-
-```sh
-$ npm run build
-```
 
 ## Project submission
 
