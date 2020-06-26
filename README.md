@@ -1,11 +1,11 @@
-# JavaScript Programming Challenge: Job List UI
+# JavaScript Programming Challenge: Job Search UI
 
 You're free to use any JavaScript framework or vanilla JS, whatever you feel comfortable with.
 
 
 ## Objective
 
-Implement a UI displaying a list of job postings by fetching search results from the [Joblocal API](https://developer.joblocal.de/).
+Implement a UI displaying a list of job posting search results by fetching search results from the [Joblocal API - Job Search](https://developer.joblocal.de/#operation/SearchJobList).
 
 **Key Features**:
 - Input Field for providing a search query
